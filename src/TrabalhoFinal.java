@@ -5,36 +5,47 @@ public class TrabalhoFinal{
         Scanner sc = new Scanner(System.in);
 
         String [][] matriz = new String[7][7];
-        Ler(matriz, sc);
-        jogada(matriz, sc);
-        char X = 'X';
-        char O = 'O';
-
+        System.out.println("Escolha a sua cor: V(Vermelho)/A(azul)");
+        String cor = sc.next();        
+        Ler(matriz, sc, cor);
+        jogada(matriz, sc, cor);
+        escrever(matriz, sc, cor);
+        System.out.println();
     }
-    public static void Ler(String [] [] matriz, Scanner sc){
+    
+    public static void Ler(String [] [] matriz, Scanner sc, String cor){
         for(int j = 0; j<matriz.length; j++){
         for(int i = 0; i<matriz.length;i++){
-        matriz[i][j] = "|";
+        matriz[i][j] = "B ";
         }
     }
     for(int c = 0; c < 6;c++){
     System.out.println();
-    escrever(matriz, sc);
+    escrever(matriz, sc,cor);
     }
     }
-    public static void escrever(String [] [] matriz, Scanner sc){
+    public static void escrever(String [] [] matriz, Scanner sc, String cor){
         for(int j = 0; j<matriz.length; j++){
         for(int i = 0; i<matriz.length;i++){
-            if(j <= 8){
+            if(i <= 8){
             System.out.print(matriz[i][j]);
             break;
             }
         }
     }
     }
-    public static void jogada(String [] [] matriz, Scanner sc){
-        for(int j = 0; j<matriz.length; j++){
-
-        }       
+    public static void jogada(String [] [] matriz, Scanner sc, String cor){
+        for(int j = 0; j<1; j++){   
+            for(int i = 0; i<1; i++){
+            System.out.println("jogador informe a coluna que vai jogar:");
+            j = sc.nextInt();
+            j=j-1;
+            matriz[i][j] = cor+" ";
+            System.out.println("Computador esta fazendo a jogada");
+            j = sc.nextInt();
+            j=j-1;
+            matriz[i][j] = "o ";
+        }
+        }
     }
 }
